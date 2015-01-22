@@ -1,0 +1,9 @@
+﻿<Window x:Class="TwitterPhotosGrabber.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ResizeMode="CanMinimize"
+        Title="Tweet Photos Grabber" Icon="Joker.ico" Height="480" Width="600">
+    <Grid>
+        
+    </Grid>
+</Window>

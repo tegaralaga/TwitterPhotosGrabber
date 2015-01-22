@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="TwitterPhotosGrabber.Dashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="600">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_TPG">
+                <MenuItem Header="_Tentang" Click="MenuItem_Click"/>
+                <MenuItem Header="_Keluar" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Akun">
+                <MenuItem Header="_Limit Status" Click="MenuItem_Click"/>
+                <MenuItem Header="_Sign Out" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel>
+            <xctk:BusyIndicator x:Name="ProgressIndicator" IsBusy="False">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="USERNAME" Width="100"/>
+                        <TextBox x:Name="TextBox_Username" Width="474"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="FOLDER" Width="100"/>
+                        <TextBox x:Name="TextBox_Browse_Folder" IsReadOnly="True" Width="374"/>
+                        <Button x:Name="Button_Browse_Folder" Click="Browse_Folder" Margin="5,0,0,0" Content="Browse..." Width="95"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="SINCE ID" Width="100"/>
+                        <TextBox x:Name="TextBox_Since" Width="474"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="MAX ID" Width="100"/>
+                        <TextBox x:Name="TextBox_Max" Width="474"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="TWEET / REQ" Width="100"/>
+                        <ComboBox x:Name="ComboBox_MaxResult" Width="474" SelectedIndex="0" SelectionChanged="MaxResultSelectedChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="ORDER" Width="100"/>
+                        <ComboBox x:Name="ComboBox_Order" Width="474" SelectedIndex="0" SelectionChanged="OrderSelectedChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="MODE" Width="100"/>
+                        <ComboBox x:Name="ComboBox_Mode" Width="474" SelectedIndex="0" SelectionChanged="ModeSelectedChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="Include RTs" Width="100"/>
+                        <CheckBox x:Name="CheckBox_RTS" Unchecked="RTCheckBoxChanged" Checked="RTCheckBoxChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <TextBlock Text="Include Replies" Width="100"/>
+                        <CheckBox x:Name="CheckBox_Replies" Unchecked="RepliesCheckBoxChanged" Checked="RepliesCheckBoxChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                        <Button x:Name="Button_Grab" Content="GRAB" Width="574" Click="Grab_Content" />
+                    </StackPanel>
+                </StackPanel>
+            </xctk:BusyIndicator>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,0">
+                <Button x:Name="Button_Terminate" Content="TERMINATE" Width="574" Visibility="Hidden" Click="Terminate_Grab"/>
+            </StackPanel>
+            <ScrollViewer x:Name="Scroll_Viewer" Height="136">
+                <TextBlock TextWrapping="Wrap" x:Name="Command_Bar" Text=""/>
+            </ScrollViewer>
+            <StatusBar x:Name="Status_Bar" Height="20">
+                <TextBlock TextWrapping="Wrap" x:Name="Status_Bar_Text"/>
+            </StatusBar>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
