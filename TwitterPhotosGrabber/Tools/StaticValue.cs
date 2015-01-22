@@ -17,14 +17,7 @@ namespace TwitterPhotosGrabber.Tools
         public StaticValue()
         {
             __twitter_consumer_list.Clear();
-            TwitterConsumer tc = new TwitterConsumer("Grab Photos 3", "0TDdy4DyU3U4Tl3PWjaKeqhrz", "vJFaMhYi7dGBfFf4Kc36V6UrZpov5MggezVpNl1MjHLMFZbOeY");
-            TwitterConsumer tc1 = new TwitterConsumer("Grab Photos 2", "qObG5ecnlzU5sRTTqtBHnwLMa", "TjZPXB7TQ3J7Gdt8ugebxP5fPKDDXr7DXjQ8L2CQtTsMANosos");
-            TwitterConsumer tc2 = new TwitterConsumer("Grab Photos 1", "uZRF6nioDBwopfGawYCu0KtDD", "W6jenbyg9vP68YqjUSGOni43O1uCFdzrJr71iCwnUCFiSArrqA");
-            TwitterConsumer tc3 = new TwitterConsumer("Grab Photos", "E7IAJO4MoKCZa2h0YzJ2anDSI", "VAtnJSWuRgV9sBXeX0o6c5QM8id6SMUBJ83vn9dlO4dcW8mRGb");
-            __twitter_consumer_list.Add(tc3);
-            __twitter_consumer_list.Add(tc2);
-            __twitter_consumer_list.Add(tc1);
-            __twitter_consumer_list.Add(tc);
+            // this is where we declare applications (Consumer Key and Consumer Secret)
             __selected_application = Properties.Settings.Default.TWITTER_CURRENT_APPLICATION;
             __current_twitter_consumer = __twitter_consumer_list[__selected_application];
             __is_login = Properties.Settings.Default.IS_LOGIN;
